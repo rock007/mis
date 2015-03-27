@@ -3,6 +3,8 @@ package com.sam.abcd.data.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -17,14 +19,14 @@ import javax.validation.constraints.NotNull;
 
 import java.util.List;
 
-@Service
-@Validated
+@Component("userService")
+@Transactional
 public class UserServiceImpl implements UserService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserRepository repository;
 
-    @Inject
+    @Autowired
     public UserServiceImpl(final UserRepository repository) {
         this.repository = repository;
     }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sam.abcd.data.repository.CustomerRepository;
+import com.sam.abcd.data.service.UserService;
 
 @Controller
 public class HomeController {
@@ -23,8 +24,9 @@ public class HomeController {
 	@Value("${application.message:Hello World}")
 	private String message = "Hello World";
 	
-	 //@Autowired
-	// private 	CustomerRepository userProvider;
+	 @Autowired
+	 UserService userServicetory;
+	
 	@RequestMapping("/")
 	public String index(Map<String, Object> model) {
 		
