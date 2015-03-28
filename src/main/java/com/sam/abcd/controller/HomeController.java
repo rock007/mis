@@ -1,4 +1,4 @@
-package com.sam.web.abcd.controller;
+package com.sam.abcd.controller;
 
 import java.util.Date;
 import java.util.Locale;
@@ -23,8 +23,8 @@ public class HomeController {
 	@Value("${application.message:Hello World}")
 	private String message = "Hello World";
 	
-	 //@Autowired
-	// private 	CustomerRepository userProvider;
+	 @Autowired
+	 private 	CustomerRepository userProvider;
 	@RequestMapping("/")
 	public String index(Map<String, Object> model) {
 		

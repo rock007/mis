@@ -1,4 +1,4 @@
-package com.sam.abcd.app;
+package com.sam.abcd;
 
 import java.util.Arrays;
 
@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/***
 @Configuration
-@ComponentScan(basePackages = "com.sam.web.abcd")
+@ComponentScan(basePackages = "com.sam.abcd")
 @EnableAutoConfiguration
 @SpringBootApplication
 public class AbcdApplication extends SpringBootServletInitializer {
@@ -29,4 +30,14 @@ public class AbcdApplication extends SpringBootServletInitializer {
 		SpringApplication.run(AbcdApplication.class, args);
 	}
 	
+}
+***/
+
+@SpringBootApplication
+@ComponentScan
+public class AbcdApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AbcdApplication.class, args);
+	}
 }

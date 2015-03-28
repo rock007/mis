@@ -1,4 +1,4 @@
-package com.sam.web.abcd.controller;
+package com.sam.abcd.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
