@@ -4,16 +4,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-<h1><spring:message code="user.list"/></h1>
-<ul>
-    <%--@elvariable id="users" type="java.util.List"--%>
-    <c:forEach items="${users}" var="user">
-        <li>
-            <c:out value="${user.getId()}"/>
-        </li>
-    </c:forEach>
-</ul>
-
-<a href="<spring:url value="/user_create.html" />"><spring:message code="user.create"/></a>
+you are here
 </body>
 </html>

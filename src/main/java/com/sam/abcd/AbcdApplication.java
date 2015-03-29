@@ -10,6 +10,7 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -35,6 +36,7 @@ public class AbcdApplication extends SpringBootServletInitializer {
 
 @SpringBootApplication
 @ComponentScan
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class AbcdApplication {
 
 	public static void main(String[] args) {
