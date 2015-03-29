@@ -33,7 +33,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String home( Model model) {
 		
 		return "user_list";
