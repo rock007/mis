@@ -35,10 +35,10 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User save(@NotNull @Valid final User user) {
         LOGGER.debug("Creating {}", user);
-        User existing = repository.findOne(user.getId());
+        User existing = repository.findOne(user.getUserName());
         if (existing != null) {
             throw new UserAlreadyExistsException(
-                    String.format("There already exists a user with id=%s", user.getId()));
+                    String.format("There already exists a user with id=%s", user.getUserName()));
         }
         return repository.save(user);
     }

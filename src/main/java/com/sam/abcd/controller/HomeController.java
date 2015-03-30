@@ -1,4 +1,4 @@
-package com.sam.web.abcd.controller;
+package com.sam.abcd.controller;
 
 import java.util.Date;
 import java.util.Locale;
@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +26,10 @@ public class HomeController {
 	private String message = "Hello World";
 	
 	 @Autowired
-	 UserService userServicetory;
+	 private UserService userServicetory;
 	
+	 private CustomerRepository userProvider;
+
 	@RequestMapping("/")
 	public String index(Map<String, Object> model) {
 		
@@ -35,10 +38,24 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@Secured("ROLE_ADMIN")
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String home( Model model) {
 		
 		return "user_list";
 	}
+	
+	@RequestMapping("/login")
+	public String login(){
+		
+		return "login";
+	}
+	
+	@RequestMapping("/access")
+	public String access(){
+		
+		return "access";
+	}
+	
 	
 }

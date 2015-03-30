@@ -1,44 +1,16 @@
 package com.sam.abcd;
 
-import java.util.Arrays;
-
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
-/***
-@Configuration
-@ComponentScan(basePackages = "com.sam.web.abcd")
-@EnableAutoConfiguration
 @SpringBootApplication
-public class AbcdApplication extends SpringBootServletInitializer {
-
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(AbcdApplication.class);
-	}
-
-	public static void main(String[] args) throws Exception {
-		SpringApplication.run(AbcdApplication.class, args);
-	}
-	
-}
-***/
-@EnableAutoConfiguration
-@ComponentScan(basePackages = "com.sam.web.abcd,com.sam.web.abcd.data.service")
-@SpringBootApplication
+@ComponentScan
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class AbcdApplication {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		SpringApplication.run(AbcdApplication.class, args);
 	}
-
 }

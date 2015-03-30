@@ -1,4 +1,4 @@
-package com.sam.web.abcd.controller;
+package com.sam.abcd.controller;
 
 import java.util.Date;
 import java.util.Map;
