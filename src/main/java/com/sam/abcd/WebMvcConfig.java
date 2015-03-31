@@ -1,20 +1,16 @@
 package com.sam.abcd;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -34,17 +30,15 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		return new ApplicationSecurity();
 	}
 
+	@Configuration
 	@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 	protected static class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
 		@Autowired
 		private SecurityProperties security;
 
-		//@Autowired
-		//private DataSource dataSource;
-
 		@Autowired
-		private UserAuthService userService;
+		private UserAuthService userAuthService;
 		
 		private static PasswordEncoder encoder;
 		
@@ -53,15 +47,16 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 			http.authorizeRequests().antMatchers("/resources/**").permitAll().anyRequest()
 					.fullyAuthenticated().and().formLogin().loginPage("/login")
 					.failureUrl("/login?error").permitAll();
+			
 		}
 
 		@Override
 		public void configure(AuthenticationManagerBuilder auth) throws Exception {
-			//auth.jdbcAuthentication().dataSource(this.dataSource);
 			
-			auth.userDetailsService(userService)
+			auth.userDetailsService(userAuthService)
 		        .passwordEncoder(getPasswordEncoder());
 			
+			//auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
 		}
 		
 		@Bean(name = "passwordEncoder")

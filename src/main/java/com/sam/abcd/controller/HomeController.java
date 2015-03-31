@@ -51,7 +51,7 @@ public class HomeController {
 		return "login";
 	}
 	
-	@RequestMapping("/access")
+	//@RequestMapping("/access")
 	public String access(){
 		
 		return "access";

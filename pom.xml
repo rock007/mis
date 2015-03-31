@@ -6,7 +6,7 @@
 	<groupId>org.test</groupId>
 	<artifactId>sam</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>abcd</name>
 	<description>extjs boot demo</description>
