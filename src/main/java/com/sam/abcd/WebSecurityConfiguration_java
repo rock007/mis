@@ -1,0 +1,62 @@
+package com.sam.abcd;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+@Configuration
+@EnableWebMvcSecurity 
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+	@Autowired
+	private UserDetailsService userDetailsService;
+
+	//@Autowired
+	//private UserAuthService userAuthService;
+	
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth)
+			throws Exception {
+		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+		authenticationProvider.setUserDetailsService(userDetailsService);
+
+		auth.authenticationProvider(authenticationProvider);
+		
+		//auth.userDetailsService(userAuthService).passwordEncoder(getPasswordEncoder());
+	
+		//auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
+	}
+	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		// @formatter:off
+		web
+			.ignoring()
+			.antMatchers(HttpMethod.POST, "/users");
+		// @formatter:on
+	}
+	/**
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/resources/**").permitAll().anyRequest()
+				.fullyAuthenticated().and().formLogin().loginPage("/login")
+				.failureUrl("/login?error").permitAll();
+		
+	}
+****/
+	@Override
+	@Bean
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
+	}
+
+}
