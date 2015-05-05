@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -16,11 +17,29 @@
 				</ul>
 			</div>
 		</div>
+=======
+
+<!DOCTYPE html>
+<html >
+<head>
+<title>Login</title>
+</head>
+<body>
+	<div class="container">
+		
+>>>>>>> 9052e171c6e8aeb0109284a9213e6f18b772580b
 		<div class="content">
 			<p th:if="${param.logout}" class="alert">You have been logged out</p>
 			<p th:if="${param.error}" class="alert alert-error">There was an error, please try again</p>
 			<h2>Login with Username and Password</h2>
+<<<<<<< HEAD
 			<form name="form" th:action="@{/login}" action="/login" method="POST">
+=======
+			<form name="form" action="/login" method="POST">
+			
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			
+>>>>>>> 9052e171c6e8aeb0109284a9213e6f18b772580b
 				<fieldset>
 					<input type="text" name="username" value="" placeholder="Username" />
 					<input type="password" name="password" placeholder="Password" />
@@ -29,6 +48,11 @@
 					class="btn btn-primary" />
 			</form>
 		</div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9052e171c6e8aeb0109284a9213e6f18b772580b
 	</div>
 </body>
 </html>

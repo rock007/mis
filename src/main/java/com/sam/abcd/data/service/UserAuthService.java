@@ -28,12 +28,12 @@ public class UserAuthService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String name)
 			throws UsernameNotFoundException {
 		
-		User oneUser= userRepository.findOne(name);
+		final User oneUser= userRepository.findOne(name);
 
 		if(oneUser==null){
 			
 			loggger.warn("用户不存在！");
-			return null;
+			throw new UsernameNotFoundException("用户没有找到！");
 		}
 		
 	    return new UserDetails() {

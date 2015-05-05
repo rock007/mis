@@ -8,8 +8,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 @SpringBootApplication
 @ComponentScan
-//@EnableAutoConfiguration
-//@EnableGlobalMethodSecurity(securedEnabled = true)
 public class AbcdApplication {
 
 	public static void main(String[] args) {

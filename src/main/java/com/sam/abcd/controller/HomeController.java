@@ -51,11 +51,22 @@ public class HomeController {
 		return "login";
 	}
 	
-	//@RequestMapping("/access")
+	/***
+	@RequestMapping( value="/login" ,method=RequestMethod.POST)
+	public String doLogin(){
+		
+		return "login";
+	}
+	
+	@RequestMapping("/loginSuccess.html")
+	public String loginSuccess(){
+		
+		return "success";
+	}
+	***/
+	@RequestMapping("/access")
 	public String access(){
 		
 		return "access";
 	}
-	
-	
 }

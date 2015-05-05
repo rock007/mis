@@ -4,15 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>需要授权</title>
+<title>Insert title here</title>
 </head>
 <body>
 
-<<<<<<< HEAD
-<h2>need access!</h2>
-=======
-<h2>登陆成功!</h2>
->>>>>>> 9052e171c6e8aeb0109284a9213e6f18b772580b
+登陆成功！
 
 </body>
 </html>
